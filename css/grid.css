@@ -1,0 +1,407 @@
+/**
+ * MyGrid.css
+ * 24, 12, 6, 4, 3, 2 or 1 columns all in one.
+ *
+ * @repository     https://github.com/renatorib/mygrid.css
+ * @fork           https://github.com/renatorib/mygrid.css/fork
+ * @clone          https://github.com/renatorib/mygrid.css.git
+ *
+ * @license        GPL v2 (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author	       Renato Ribeiro (https://lugri.com/)
+ * @version        1.0
+ * 
+ */
+
+/* FIXS & GLOBAL */
+
+ *[class*="mycol"], .myrow {
+ 	box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	-webkit-box-sizing: border-box;
+ }
+
+*[class*="myrow"]:after, .myrow:after, .myrow-960:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+* html .myrow, *:first-child+html .myrow { 
+	zoom: 1; 
+} /* IE6 & IE7 */
+
+*[class*="mycol"] {
+	float: left;
+	height: 100%;
+}
+
+*[class*="mycol"].p10 {
+	padding: 10px;
+}
+
+.myrow-960 {
+	width: 960px;
+	margin: 0 auto;
+}
+
+/* GRID */
+
+.mycol-1-24 {
+	width: 4.16666%;
+}
+
+.mycol-2-24, 
+.mycol-1-12 {
+	width: 8.33333%;
+}
+
+.mycol-3-24 {
+	width: 12.5%;
+}
+
+.mycol-4-24, 
+.mycol-2-12, 
+.mycol-1-6 {
+	width: 16.66666%;
+}
+
+.mycol-5-24 {
+	width: 20.833333%;
+}
+
+.mycol-6-24, 
+.mycol-3-12, 
+.mycol-1-4 {
+	width: 25%;
+}
+
+.mycol-7-24 {
+	width: 29.16666%;
+}
+
+.mycol-8-24, 
+.mycol-4-12, 
+.mycol-2-6, 
+.mycol-1-3 {
+	width: 33.33333%;
+}
+
+.mycol-9-24 {
+	width: 37.5%;
+}
+
+.mycol-10-24, 
+.mycol-5-12 {
+	width: 41.66666%;
+}
+
+.mycol-11-24 {
+	width: 45.833333%;
+}
+
+.mycol-12-24, 
+.mycol-6-12, 
+.mycol-3-6, 
+.mycol-2-4, 
+.mycol-1-2 {
+	width: 50%;
+}
+
+.mycol-13-24 {
+	width: 54.166666%;
+}
+
+.mycol-14-24, 
+.mycol-7-12 {
+	width: 58.333333%;
+}
+
+.mycol-15-24 {
+	width: 62.5%;
+}
+
+.mycol-16-24, 
+.mycol-8-12, 
+.mycol-4-6, 
+.mycol-2-3 {
+	width: 66.66666%;
+}
+
+.mycol-17-24 {
+	width: 70.83333%;
+}
+
+.mycol-18-24, 
+.mycol-9-12, 
+.mycol-3-4 {
+	width: 75%;
+}
+
+.mycol-19-24 {
+	width: 79.166666%;
+}
+
+.mycol-20-24, 
+.mycol-10-12, 
+.mycol-5-6 {
+	width: 83.33333%;
+}
+
+.mycol-21-24 {
+	width: 87.5%;
+}
+
+.mycol-22-24, 
+.mycol-11-12 {
+	width: 91.66666%;
+}
+
+.mycol-23-24 {
+	width: 95.833333%;
+}
+
+.mycol-24-24, 
+.mycol-12-12, 
+.mycol-6-6, 
+.mycol-4-4, 
+.mycol-3-3, 
+.mycol-2-2, 
+.mycol-1-1,
+.mycol-1 {
+	width: 100%;
+}
+
+/* MARGIN LEFT with PULL */
+
+.mycol-pull-1-24 {
+	margin-left: 4.16666%;
+}
+
+.mycol-pull-2-24, 
+.mycol-pull-1-12 {
+	margin-left: 8.33333%;
+}
+
+.mycol-pull-3-24 {
+	margin-left: 12.5%;
+}
+
+.mycol-pull-4-24, 
+.mycol-pull-2-12, 
+.mycol-pull-1-6 {
+	margin-left: 16.66666%;
+}
+
+.mycol-pull-5-24 {
+	margin-left: 20.833333%;
+}
+
+.mycol-pull-6-24, 
+.mycol-pull-3-12, 
+.mycol-pull-1-4 {
+	margin-left: 25%;
+}
+
+.mycol-pull-7-24 {
+	margin-left: 29.16666%;
+}
+
+.mycol-pull-8-24, 
+.mycol-pull-4-12, 
+.mycol-pull-2-6, 
+.mycol-pull-1-3 {
+	margin-left: 33.33333%;
+}
+
+.mycol-pull-9-24 {
+	margin-left: 37.5%;
+}
+
+.mycol-pull-10-24, 
+.mycol-pull-5-12 {
+	margin-left: 41.66666%;
+}
+
+.mycol-pull-11-24 {
+	margin-left: 45.833333%;
+}
+
+.mycol-pull-12-24, 
+.mycol-pull-6-12, 
+.mycol-pull-3-6, 
+.mycol-pull-2-4, 
+.mycol-pull-1-2 {
+	margin-left: 50%;
+}
+
+.mycol-pull-13-24 {
+	margin-left: 54.166666%;
+}
+
+.mycol-pull-14-24, 
+.mycol-pull-7-12 {
+	margin-left: 58.333333%;
+}
+
+.mycol-pull-15-24 {
+	margin-left: 62.5%;
+}
+
+.mycol-pull-16-24, 
+.mycol-pull-8-12, 
+.mycol-pull-4-6, 
+.mycol-pull-2-3 {
+	margin-left: 66.66666%;
+}
+
+.mycol-pull-17-24 {
+	margin-left: 70.83333%;
+}
+
+.mycol-pull-18-24, 
+.mycol-pull-9-12, 
+.mycol-pull-3-4 {
+	margin-left: 75%;
+}
+
+.mycol-pull-19-24 {
+	margin-left: 79.166666%;
+}
+
+.mycol-pull-20-24, 
+.mycol-pull-10-12, 
+.mycol-pull-5-6 {
+	margin-left: 83.33333%;
+}
+
+.mycol-pull-21-24 {
+	margin-left: 87.5%;
+}
+
+.mycol-pull-22-24, 
+.mycol-pull-11-12 {
+	margin-left: 91.66666%;
+}
+
+.mycol-pull-23-24 {
+	margin-left: 95.833333%;
+}
+
+/* MARGIN LEFT with PUSH */
+
+.mycol-push-1-24 {
+	margin-right: 4.16666%;
+}
+
+.mycol-push-2-24, 
+.mycol-push-1-12 {
+	margin-right: 8.33333%;
+}
+
+.mycol-push-3-24 {
+	margin-right: 12.5%;
+}
+
+.mycol-push-4-24, 
+.mycol-push-2-12, 
+.mycol-push-1-6 {
+	margin-right: 16.66666%;
+}
+
+.mycol-push-5-24 {
+	margin-right: 20.833333%;
+}
+
+.mycol-push-6-24, 
+.mycol-push-3-12, 
+.mycol-push-1-4 {
+	margin-right: 25%;
+}
+
+.mycol-push-7-24 {
+	margin-right: 29.16666%;
+}
+
+.mycol-push-8-24, 
+.mycol-push-4-12, 
+.mycol-push-2-6, 
+.mycol-push-1-3 {
+	margin-right: 33.33333%;
+}
+
+.mycol-push-9-24 {
+	margin-right: 37.5%;
+}
+
+.mycol-push-10-24, 
+.mycol-push-5-12 {
+	margin-right: 41.66666%;
+}
+
+.mycol-push-11-24 {
+	margin-right: 45.833333%;
+}
+
+.mycol-push-12-24, 
+.mycol-push-6-12, 
+.mycol-push-3-6, 
+.mycol-push-2-4, 
+.mycol-push-1-2 {
+	margin-right: 50%;
+}
+
+.mycol-push-13-24 {
+	margin-right: 54.166666%;
+}
+
+.mycol-push-14-24, 
+.mycol-push-7-12 {
+	margin-right: 58.333333%;
+}
+
+.mycol-push-15-24 {
+	margin-right: 62.5%;
+}
+
+.mycol-push-16-24, 
+.mycol-push-8-12, 
+.mycol-push-4-6, 
+.mycol-push-2-3 {
+	margin-right: 66.66666%;
+}
+
+.mycol-push-17-24 {
+	margin-right: 70.83333%;
+}
+
+.mycol-push-18-24, 
+.mycol-push-9-12, 
+.mycol-push-3-4 {
+	margin-right: 75%;
+}
+
+.mycol-push-19-24 {
+	margin-right: 79.166666%;
+}
+
+.mycol-push-20-24, 
+.mycol-push-10-12, 
+.mycol-push-5-6 {
+	margin-right: 83.33333%;
+}
+
+.mycol-push-21-24 {
+	margin-right: 87.5%;
+}
+
+.mycol-push-22-24, 
+.mycol-push-11-12 {
+	margin-right: 91.66666%;
+}
+
+.mycol-push-23-24 {
+	margin-right: 95.833333%;
+}

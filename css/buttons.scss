@@ -1,0 +1,230 @@
+$dark: #333333;
+$light: #ecf0f1;
+$green: #2ecc71;
+$red: #c0392b;
+
+/*********************
+ * Mixins  
+ *********************/
+
+/**
+ *
+ * @mixin styling
+ *
+ * @argument $background 
+ * @argument $color
+ *
+ */ 	
+
+@mixin styling($background, $color) {
+  background-color: $background;
+  color: $color;
+  @if $background != transparent { 
+    &:hover {
+      background-color: lighten($background, 5%);
+      @include icon-color(darken($background, 15%)); 
+    }
+    @include icon-color(darken($background, 25%)); 
+  }
+}
+
+/**
+ *
+ * @mixin sizing
+ *
+ * @argument  $font-size
+ * @argument  $padding-vertical 
+ *            > The padding-top and padding-bottom properties
+ * @argument  $padding-horizontal 
+ *            > The padding-left and padding-right property
+ *
+ */ 
+
+@mixin sizing($font-size, $padding-vertical: 7px, $padding-horizontal: 10px) {
+  font-size: $font-size;
+  padding: $padding-vertical $padding-horizontal $padding-vertical $padding-horizontal;
+}
+
+/**
+ *
+ * Font Awesome helper mixins
+ * 
+ */
+ 
+$icon-class: ".fa"; //Font Awesome icon class. Could be changed to .glyphicon, .icon, etc
+
+@mixin icon {
+  &#{$icon-class}:before {
+    @content
+  }
+}
+
+@mixin icon-color($color) {
+  @include icon {
+    color: $color;
+  }
+}
+
+/*********************
+ * Buttons  
+ *********************/
+
+// Wrapper
+
+.btn {
+  padding: 7px 10px;
+  border: 0px;
+  border-radius: 3px;
+  line-height: 1.42857143em;
+  display: inline-block;
+  vertical-align: middle;
+  background: transparent;
+  color: #eee;
+  font-size: 14px;
+  font-weight: 700;
+
+  @include icon {
+    margin-right: 5px;
+    font-weight: 100;
+    font-size: 1.2em;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+// Sizing
+
+.btn {
+
+  &.xsmall {
+    @include sizing(10px, 4px, 8px);
+  }
+
+  &.small {
+    @include sizing(12px, 5px, 10px);
+  }
+
+  &.submit {
+    @include sizing(14px, 8px, 10px)
+  }
+
+  &.big {
+    @include sizing(18px, 10px, 14px);
+  }
+
+  &.xbig {
+    @include sizing(22px, 12px, 16px);
+  }
+
+  &.monster {
+    @include sizing(26px, 14px, 18px);
+  }
+
+  &.xmonster {
+    @include sizing(32px, 16px, 20px);
+  }
+
+}
+
+// Styling 
+
+.btn {	
+
+  &.link {
+    @include styling(transparent, $dark);
+    &:hover { opacity: 0.7; }
+  }
+
+  &.link.light {
+    @include styling(transparent, $light);
+  }
+
+  &.green {
+    @include styling($green, $light);
+  }
+
+  &.red {
+    @include styling($red, $light);
+  }
+
+  &.white {
+    @include styling(white, $dark);
+    &:hover {
+      background: #f7f7f7;
+    }
+  }
+  
+  // Adding more styles
+  
+  &.custom {
+    @include styling(#000 /* background */, #FFF /* color */);
+  }
+
+}
+
+// Specifics Styles
+// Custom > Project demand
+
+.btn {
+
+  // These are just examples...
+
+  &.w100p {
+    width: 100%;
+  }
+
+  &.h100p {
+    height: 100%;
+  }
+
+  &.mt10 {
+    margin-top: 10px;
+  }
+
+  nav & {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100%;
+    display: block;
+    border-radius: 0;
+  } 
+
+  header {
+    .right & {
+      margin-right: 7px;
+    }
+    .left & {
+      margin-left: 7px;
+    }
+  }
+  
+  // ...Add others as demand for your project
+
+}
+
+/***********************************************************************************************
+ *
+ * Examples
+ *
+ *      <a href="#" class="big red btn">Big Red Button</a> <!-- Semantical!!!! -->
+ *
+ *      <a href="#" class="small green btn">Small Green Button</a>
+ *
+ *
+ * Font Awesome support
+ *
+ *      <a href="#" class="xbig green btn fa fa-user">XBig green button with user icon</a>
+ *
+ *
+ **********************************************************************************************/
+
+
+
+	

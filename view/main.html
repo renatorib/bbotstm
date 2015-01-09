@@ -1,0 +1,152 @@
+<head>
+  <title>BBot Script Table Maker</title>
+</head>
+
+<body>
+    <header>
+      <div class="container">
+      	<div class="myrow">
+		    <div class="mycol-8-12">
+			    <h1>BBot<b>STM</b> <i>Meteor</i> <small>by Renato Ribeiro</small></h1>
+			</div>
+			<div class="mycol-4-12">
+				{{> loginButtons}}
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	 </div>
+    </header>
+
+    {{#if currentUser}}
+    <section class="script">
+    	<div class="container">
+			<h2>Add script</h2>
+		    <form class="new-script">
+		      	<div class="myrow">
+			      	<div class="mycol-1-4">
+						<input type="number" max="999" min="0" name="level" class="level" placeholder="Min. Level" required />
+					</div>
+					<div class="mycol-2-4">
+						<input type="text" name="name" class="name" placeholder="Desc. Name, Ex.: Yalahar East Dragons" required />
+					</div>
+					<div class="mycol-1-4">
+						<input type="text" name="thread" class="thread" placeholder="URL" required />
+					</div>
+				</div>
+				<div class="vocations myrow">
+					<label class="mycol-1-6">
+						<input type="checkbox" name="voc" value="n" />
+						<div data-small="N" data-normal="None"></div>
+					</label>
+					<label class="mycol-1-6">
+						<input type="checkbox" name="voc" value="k" />
+						<div data-small="K" data-normal="Knight"></div>
+					</label>
+					<label class="mycol-1-6">
+						<input type="checkbox" name="voc" value="p" />
+						<div data-small="P" data-normal="Paladin"></div>
+					</label>
+					<label class="mycol-1-6">
+						<input type="checkbox" name="voc" value="s" />
+						<div data-small="S" data-normal="Sorcerer"></div>
+					</label>
+					<label class="mycol-1-6">
+						<input type="checkbox" name="voc" value="d" />
+						<div data-small="D" data-normal="Druid"></div>
+					</label>
+					<div class="mycol-1-6">
+						<button class="green btn w100p submit" type="submit">Submit</button>
+					</div>
+			  		<div class="clearfix"></div>
+				</div>
+			</form>
+		</div>
+	</section>
+	{{/if}}
+	
+	{{#if currentUser}}
+
+	<div class="myrow container">
+		<div class="mycol-1-2 p10">
+		    {{> list}}
+		</div>
+		<div class="mycol-1-2 p10">
+			<strong>Output. </strong><br />Click to select, then copy all.<br /><br />
+			{{> generate}}
+		</div>
+	</div>
+
+	{{else}}
+			<div class="container">
+				<h2>Please sign in</h2>
+				Sign in or create a new account at the <i>top-right</i> of this page and you'll can use this app.
+			</div>
+
+	{{/if}}
+
+	
+	
+
+</body>
+
+<template name="list">
+	{{#if scripts}}
+		{{#each vocs}}
+			{{> vocation name=.}}
+		{{/each}}
+	{{else}}
+		<strong>Nothing to show.</strong><br />
+		Try to add one script first.
+	{{/if}}
+</template>
+
+<template name="vocation">
+	{{#if scripts name}}
+	<div class="container">
+		<ul>
+			<li class="title {{#if maximized name}}{{else}}minimized{{/if}}">
+				<span class="toggle">{{#if maximized name}}-{{else}}+{{/if}}</span>
+				<strong>{{ufirst name}}s</strong>
+			</li>
+		</ul>
+	    <ul class="voc {{name}} {{#if maximized name}}{{else}}minimized{{/if}}" data-voc="{{name}}">
+	      {{#each scripts name}}
+	        {{> script}}
+	      {{/each}}
+	    </ul>
+    </div>
+    {{/if}}
+</template>
+
+<template name="script">
+  <li data-id="{{_id}}">
+  	<button class="delete">&times;</button>
+  	<span class="text">
+  		<strong>[{{level}}+]</strong> {{name}}  <small>({{thread}})</small>
+  	</span>
+  </li>
+</template>
+
+<template name="generate">
+	<div class="container">
+		<textarea class="generate" readonly>{{> list_generate}}</textarea>
+	</div>
+</template>
+
+<!-- Caution with space usage. It WILL output to textarea and uglify the result. -->
+<template name="list_generate">
+{{#each vocs}}{{#if scripts .}}[center]
+  [table=50]
+    [tr][th][/th][th][b][size=x-large][color=#000000]{{ufirst .}}
+    [/color][/size][/b][/th][th][/th][/tr]
+    [tr][th]Level[/th][th]Name[/th][th]Thread[/th][/tr]{{#each scripts .}}
+    [tr]
+        [td][b][color=#006400]{{level}}+[/color][/b][/td]
+        [td][align=left]{{name}}[/align][/td]
+        [td][url={{thread}}][color=#0000CD]Thread/Post[/color][/url][/td]
+    [/tr]{{/each}}
+  [/table]
+[/center]
+
+{{/if}}{{/each}}
+</template>
